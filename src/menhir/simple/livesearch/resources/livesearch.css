@@ -1,0 +1,33 @@
+.live-search-results .search-header {
+  display: none;
+}
+
+.live-search-results dl {
+  border-top: 1px solid #c1ced6;
+  background-color: white;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.live-search-results dl dt {
+  margin: 0;
+  padding: 0;
+}
+
+.live-search-results dl dt a {
+  display: block;
+  padding: 0.2em 0.4em;
+  border-width: 0 1px 1px 1px;
+  border-style: solid;
+  border-color: #c1ced6;
+  text-decoration: none;
+}
+
+.live-search-results dl dt a:hover {
+  background-color: #f6f7f9;
+}
+
+.live-search-results dl dt a img {
+  vertical-align: middle;
+}

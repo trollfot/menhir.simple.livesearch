@@ -28,7 +28,15 @@ class LiveSearch(grok.Viewlet):
     grok.viewletmanager(DolmenHeader)
 
     def render(self):
-        return u""
+        return u"""
+        <script>
+        $(document).ready(function(){
+          $('#search-widget').liveSearch({
+             ajaxURL: '%s/livesearch?search_term='
+           });
+        });
+        </script>
+        """ % self.view.url(self.context)
 
     def update(self):
         LiveSearchLibrary.need()
@@ -39,8 +47,9 @@ class MyQuery(grok.View):
     grok.context(Interface)
 
     def update(self):
-        self.search = getMultiAdapter((self.context, self.request),
-                                      name="searchresults")
+        self.search = getMultiAdapter(
+            (self.context, self.request), name="searchresults"
+            )
         self.search.update()
 
     def render(self):

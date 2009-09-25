@@ -66,8 +66,3 @@ jQuery.fn.liveSearch = function(conf) {
     });
   });
 };
-
-
-$(document).ready(function(){
-  $('#search-widget').liveSearch({ajaxURL: '@@livesearch?search_term='});
-});

@@ -48,9 +48,9 @@ class MyQuery(grok.View):
 
     def update(self):
         self.search = getMultiAdapter(
-            (self.context, self.request), name="searchresults"
+            (self.context, self.request), name="search.result"
             )
         self.search.update()
 
     def render(self):
-        return self.search.render()
+        return self.search.content()

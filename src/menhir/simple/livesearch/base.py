@@ -7,7 +7,7 @@ from zope.component import getUtility, getMultiAdapter
 from menhir.library.jquery import JQueryBase
 from zope.app.catalog.interfaces import ICatalog
 from zope.app.form.browser.widget import renderElement
-from dolmen.app.layout.master import DolmenHeader
+from dolmen.app.layout.master import Header
 
 
 grok.templatedir("templates")
@@ -25,7 +25,7 @@ class LiveSearchLibrary(megrok.resourcelibrary.ResourceLibrary):
 class LiveSearch(grok.Viewlet):
     grok.name("livesearch")
     grok.context(Interface)
-    grok.viewletmanager(DolmenHeader)
+    grok.viewletmanager(Header)
 
     def render(self):
         return u"""

@@ -2,13 +2,14 @@
 
 import grok
 import megrok.resourcelibrary
+
+from dolmen.app.layout.master import Header
+from menhir.library.jquery import JQueryBase
+
 from zope.interface import Interface
 from zope.component import getUtility, getMultiAdapter
-from menhir.library.jquery import JQueryBase
-from zope.app.catalog.interfaces import ICatalog
+from zope.catalog.interfaces import ICatalog
 from zope.app.form.browser.widget import renderElement
-from dolmen.app.layout.master import Header
-
 
 grok.templatedir("templates")
 
@@ -48,8 +49,7 @@ class MyQuery(grok.View):
 
     def update(self):
         self.search = getMultiAdapter(
-            (self.context, self.request), name="search.result"
-            )
+            (self.context, self.request), name="search.result")
         self.search.update()
 
     def render(self):

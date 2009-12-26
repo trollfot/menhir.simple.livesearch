@@ -26,7 +26,7 @@ setup(name = name,
           'setuptools',
           'grok',
           'dolmen.app.search',
-          'megrok.resourcelibrary',
+          'megrok.resource',
           'menhir.library.jquery',
       ],
       classifiers = [

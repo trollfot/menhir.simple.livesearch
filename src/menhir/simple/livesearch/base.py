@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
 import grok
-import megrok.resourcelibrary
+from megrok import resource
 
 from dolmen.app.layout.master import Header
-from menhir.library.jquery import JQueryBase
+from menhir.library.jquery import jquery
 
 from zope.interface import Interface
 from zope.component import getUtility, getMultiAdapter
@@ -14,13 +14,11 @@ from zope.app.form.browser.widget import renderElement
 grok.templatedir("templates")
 
 
-class LiveSearchLibrary(megrok.resourcelibrary.ResourceLibrary):
-    grok.name("menhir.simple.livesearch")
-    megrok.resourcelibrary.depend(JQueryBase)
-    megrok.resourcelibrary.directory('resources')
-    megrok.resourcelibrary.include('jquery.dimensions.js')
-    megrok.resourcelibrary.include('livesearch.js')
-    megrok.resourcelibrary.include('livesearch.css')
+class LiveSearchResources(resource.ResourceLibrary):
+    grok.path('resources')
+    resource.resource('jquery.dimensions.js', depends=[jquery])
+    resource.resource('livesearch.js')
+    resource.resource('livesearch.css')
 
 
 class LiveSearch(grok.Viewlet):
@@ -40,7 +38,7 @@ class LiveSearch(grok.Viewlet):
         """ % self.view.url(self.context)
 
     def update(self):
-        LiveSearchLibrary.need()
+        LiveSearchResources.need()
 
 
 class MyQuery(grok.View):

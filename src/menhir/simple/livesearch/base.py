@@ -4,12 +4,10 @@ import grok
 from megrok import resource
 
 from dolmen.app.layout.master import Header
-from menhir.library.jquery import jquery
+from hurry.jquery import jquery
 
 from zope.interface import Interface
-from zope.component import getUtility, getMultiAdapter
-from zope.catalog.interfaces import ICatalog
-from zope.app.form.browser.widget import renderElement
+from zope.component import getMultiAdapter
 
 grok.templatedir("templates")
 

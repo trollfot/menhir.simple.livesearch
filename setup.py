@@ -25,9 +25,12 @@ setup(name = name,
       install_requires=[
           'setuptools',
           'grok',
+          'dolmen.app.layout',
           'dolmen.app.search',
+          'hurry.jquery',
           'megrok.resource',
-          'menhir.library.jquery',
+          'zope.component',
+          'zope.interface',
       ],
       classifiers = [
         'Development Status :: 4 - Beta',
